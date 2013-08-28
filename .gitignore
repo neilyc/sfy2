@@ -1,3 +1,4 @@
+
 # Project conf
 .bundle/
 .buildpath
@@ -19,6 +20,17 @@ web/css/*
 web/js/*
 web/asset_*/*
 web/assetic
+
+# Bootstrap
+app/bootstrap*
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+
 
 # Configuration files
 app/config/parameters.ini

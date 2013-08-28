@@ -1,4 +1,5 @@
-# SFY2 : READY TO CODE
+
+# SFY2 ready to code
 
 ## Setup
 
