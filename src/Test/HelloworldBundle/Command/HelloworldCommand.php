@@ -17,17 +17,9 @@ class HelloWorldCommand extends Command
         $this
             ->setName('test:hello')
             ->setDescription('Hello World example command')
-            ->addArgument('who', InputArgument::OPTIONAL, 'Who to greet.', 'World')
-            ->setHelp(<<<EOF
-The <info>%command.name%</info> command greets somebody or everybody:
-
-<info>php %command.full_name%</info>
-
-The optional argument specifies who to greet:
-
-<info>php %command.full_name%</info> Fabien
-EOF
-            );
+            ->addArgument('who', InputArgument::OPTIONAL, 'Who to greet.', 'World');
+            //php app/console  test:hello troger => hello troger
+            //php app/console  test:hello  => hello world
     }
 
     /**

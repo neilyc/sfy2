@@ -1,3 +1,10 @@
 _helloworld:
     pattern:  /
     defaults: { _controller: TestHelloworldBundle:Helloworld:index }
+
+
+_security_check: 
+    pattern: /secured/login_check
+
+_logout:
+    pattern:  /secured/logout
