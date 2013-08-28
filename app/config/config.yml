@@ -44,7 +44,6 @@ assetic:
             output: css/compiled.css
             inputs:
                 - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
-                - %kernel.root_dir%/../vendor/bmatzner/fontawesome-bundle/Bmatzner/FontAwesomeBundle/Resources/public/css/font-awesome.css
             filters:
                 - cssrewrite
         # responsive css compilation

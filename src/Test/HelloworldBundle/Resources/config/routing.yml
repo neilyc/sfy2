@@ -1,0 +1,3 @@
+_helloworld:
+    pattern:  /
+    defaults: { _controller: TestHelloworldBundle:Helloworld:index }

@@ -3,55 +3,8 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "cef908c4ef2e7db11526e1ce0853500f",
+    "hash": "a01e440a58b33d80439beec5fe1268fa",
     "packages": [
-        {
-            "name": "bmatzner/fontawesome-bundle",
-            "version": "dev-master",
-            "target-dir": "Bmatzner/FontAwesomeBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle.git",
-                "reference": "d8779a09ce1988c841f6c8ed2a44d2613b7f7dc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bmatzner/BmatznerFontAwesomeBundle/zipball/d8779a09ce1988c841f6c8ed2a44d2613b7f7dc1",
-                "reference": "d8779a09ce1988c841f6c8ed2a44d2613b7f7dc1",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/framework-bundle": ">=2.1"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "Bmatzner\\FontAwesomeBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT",
-                "CC BY 3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Bernd Matzner",
-                    "email": "bernd@matznermatzner.de",
-                    "homepage": "http://berndmatzner.de"
-                }
-            ],
-            "description": "FontAwesome Bundle for Symfony2",
-            "homepage": "http://fortawesome.github.com/Font-Awesome/",
-            "keywords": [
-                "css",
-                "graphics",
-                "symfony",
-                "typography",
-                "webfonts"
-            ],
-            "time": "2013-06-19 14:25:44"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",

@@ -21,7 +21,6 @@
         "propel/propel-bundle": "1.2.x",
         "leafo/lessphp": "dev-master",
         "twbs/bootstrap": "dev-master",
-        "bmatzner/fontawesome-bundle": "*",
         "jquery/jquery": "1.9.*",
         "knplabs/knp-menu-bundle": "1.1.x-dev",
         "knplabs/knp-paginator-bundle": "dev-master",

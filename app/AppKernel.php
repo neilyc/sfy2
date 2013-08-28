@@ -20,10 +20,12 @@ class AppKernel extends Kernel
             new Propel\PropelBundle\PropelBundle(),
 
             // Tools bundles
-            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
+            // Test
+            new Test\HelloworldBundle\TestHelloworldBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

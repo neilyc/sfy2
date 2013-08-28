@@ -29,7 +29,7 @@ phpunit -c app/
 <Virtualhost *:80>
   ServerName devwww.sfy2.fr
   DocumentRoot "/var/local/webroot/sfy2/web"
-  DirectoryIndex frontend_dev.php
+  DirectoryIndex app_dev.php
   <Directory "/var/local/webroot/sfy2/web">
     AllowOverride All
     Allow from All

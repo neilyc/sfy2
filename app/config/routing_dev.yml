@@ -12,3 +12,7 @@ _configurator:
 
 _main:
     resource: routing.yml
+
+
+_test_helloworld:
+    resource: "@TestHelloworldBundle/Resources/config/routing.yml"    
