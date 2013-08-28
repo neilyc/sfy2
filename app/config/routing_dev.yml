@@ -15,4 +15,4 @@ _main:
 
 
 _test_helloworld:
-    resource: "@TestHelloworldBundle/Resources/config/routing.yml"    
+    resource: "@TestHelloworldBundle/Resources/config/routing.yml"

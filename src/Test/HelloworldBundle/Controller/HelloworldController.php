@@ -8,7 +8,8 @@ class HelloworldController extends Controller
 {
     public function indexAction()
     {
-    	$context['name'] = 'troger';
+        $context['name'] = 'troger';
+
         return $this->render('TestHelloworldBundle::index.html.twig', $context);
     }
 }

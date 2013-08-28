@@ -19,7 +19,6 @@ chmod 755 setup.sh
 ## Run tests
 
 ```
-./run_test.sh
 phpunit -c app/
 ```
 
