@@ -20,7 +20,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "propel/propel-bundle": "1.2.x",
         "leafo/lessphp": "dev-master",
-        "twitter/bootstrap": "dev-master",
+        "twbs/bootstrap": "dev-master",
         "bmatzner/fontawesome-bundle": "*",
         "jquery/jquery": "1.9.*",
         "knplabs/knp-menu-bundle": "1.1.x-dev",

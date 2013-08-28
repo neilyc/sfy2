@@ -9,13 +9,6 @@
 git clone https://github.com/thomaroger/sfy2.git
 ```
 
-### Recuperation du composer.phar
-
-```
-cd sfy2
-wget http://getcomposer.org/composer.phar
-```
-
 ### setup
 
 ```

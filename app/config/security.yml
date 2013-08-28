@@ -1,22 +1,16 @@
 security:
-
-    hide_user_not_found:  false
-
     encoders:
-        Extia\Bundle\UserBundle\Model\User\Internal:
-            algorithm:   sha1
-            iterations: 1
-            encode_as_base64: false
+        Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        extia:
+        in_memory:
             memory:
                 users:
-                    user: { password: userpass, roles: [ 'ROLE_USER' ] }
+                    user:  { password: userpass, roles: [ 'ROLE_USER' ] }
                     admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
@@ -25,19 +19,21 @@ security:
             security: false
 
         login:
-            pattern:  ^/login$
+            pattern:  ^/demo/secured/login$
             security: false
 
         secured_area:
-            pattern:    ^/
+            pattern:    ^/demo/secured/
             form_login:
-                provider:   extia
-        #         check_path: ....
-        #         login_path: ....
-        #     logout:
-        #         path:   ....
-        #         target: ....
+                check_path: _security_check
+                login_path: _demo_login
+            logout:
+                path:   _demo_logout
+                target: _demo
+            #anonymous: ~
+            #http_basic:
+            #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: [ROLE_AUTHENTICATION] }
+        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
