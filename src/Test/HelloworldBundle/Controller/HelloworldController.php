@@ -4,7 +4,6 @@ namespace Test\HelloworldBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContext;
 
 use Test\HelloworldBundle\Model\Country;
 use Test\HelloworldBundle\Model\Info;
@@ -57,14 +56,14 @@ class HelloworldController extends Controller
         $info->setName($this->get('request')->request->get('_name'));
         $info->setInfo($this->get('request')->request->get('_info'));
         $info->save();
-       
+
         return $this->redirect($this->generateUrl("_helloworld_admin"));
     }
 
     public function getUser()
     {
         $name = 'Anonymous';
-        if($this->container->get('security.context')->getToken()->getUser() != 'anon.') {
+        if ($this->container->get('security.context')->getToken()->getUser() != 'anon.') {
             $name = $this->container->get('security.context')->getToken()->getUser()->getUsername();
         }
 
