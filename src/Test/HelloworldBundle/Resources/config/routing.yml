@@ -3,7 +3,15 @@ _helloworld:
     defaults: { _controller: TestHelloworldBundle:Helloworld:index }
 
 
-_security_check: 
+_helloworld_user:
+    pattern: /secured/user
+    defaults: { _controller:TestHelloworldBundle:Helloworld:hello }
+
+_helloworld_admin:
+    pattern: /secured/admin
+    defaults: { _controller:TestHelloworldBundle:Helloworld:helloAdmin }
+
+_security_check:
     pattern: /secured/login_check
 
 _logout:

@@ -5,38 +5,32 @@ namespace Test\HelloworldBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-
 
 class HelloworldController extends Controller
 {
     public function indexAction(Request $request)
     {
-    	if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-        } else {
-            $error = $request->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
-        }
-
-		$context =  array(
-            'last_username' => $request->getSession()->get(SecurityContext::LAST_USERNAME),
-            'error'         => $error,
-            'name'          => 'troger'
-        );
-
+        $context = array('name' => $this->getUser());
         return $this->render('TestHelloworldBundle::index.html.twig', $context);
     }
 
-
-    public function securityCheck() 
+    public function helloAction(Request $request)
     {
-    	// The security layer will intercept this request
-    	echo "toto";
+        $context = array('name' => $this->getUser());
+        return $this->render('TestHelloworldBundle::indexUser.html.twig', $context);
     }
 
-    public function logoutAction()
+    public function helloAdminAction(Request $request)
     {
-        // The security layer will intercept this request
+        $context = array('name' => $this->getUser());
+        return $this->render('TestHelloworldBundle::indexAdmin.html.twig', $context);
+    }
+
+    public function getUser(){
+        $name = 'Anonymous';
+        if($this->container->get('security.context')->getToken()->getUser() != 'anon.') {
+            $name = $this->container->get('security.context')->getToken()->getUser()->getUsername();
+        }
+        return $name;
     }
 }

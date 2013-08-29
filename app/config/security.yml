@@ -3,7 +3,7 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_ADMIN:       ROLE_ADMIN
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
@@ -17,25 +17,20 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
-
         login:
             pattern:  login$
             security: false
-
         secured_area:
             pattern:    ^/
-            anonymous : true 
+            anonymous : true
             form_login:
                 check_path: _security_check
                 login_path: _helloworld
             logout:
                 path:   _logout
                 target: _helloworld
-            
-
-
+                
     access_control:
-        - { path: ^/secured/helloworldUser, roles: ROLE_USER }
-        - { path: ^/secured/helloworldAdmin, roles: ROLE_ADMIN }
+        - { path: ^/secured/user, roles: ROLE_USER }
+        - { path: ^/secured/admin, roles: ROLE_ADMIN }
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
