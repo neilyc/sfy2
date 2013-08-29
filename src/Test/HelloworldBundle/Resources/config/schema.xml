@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="Test\HelloworldBundle\Model" defaultIdMethod="native">
+	<table name="country">
+		<column name="id" type="INTEGER" size="10" primaryKey="true" autoIncrement="true" required="true"/>
+		<column name="name" type="VARCHAR" size="255"  required="true"/>
+		<behavior name="timestampable" />
+	</table>
+
+	<table name="info"  idMethod="native">
+		<column name="id" type="INTEGER" size="10" primaryKey="true" autoIncrement="true" required="true"/>
+		<column name="country_id" type="INTEGER" size="10" required="true"/>	
+		<column name="name" type="VARCHAR" size="255" required="true"/>
+		<column name="info" type="VARCHAR" size="255" required="true"/>	
+		<foreign-key foreignTable="country">
+            <reference local="country_id" foreign="id"/>
+        </foreign-key>
+	</table>
+</database>

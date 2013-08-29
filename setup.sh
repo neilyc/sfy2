@@ -22,11 +22,11 @@ php composer.phar install
 #php composer.phar install --prefer-source
 
 # Rebuild propel default + database
-#php app/console propel:database:drop --force --connection=default
-#php app/console propel:database:create --connection=default
+php app/console propel:database:drop --force --connection=default
+php app/console propel:database:create --connection=default
 
-#php app/console propel:build --verbose
-#php app/console propel:sql:insert --force --connection=default
+php app/console propel:build --verbose
+php app/console propel:sql:insert --force --connection=default
 
 php composer.phar dump-autoload -o
 
@@ -42,3 +42,6 @@ php app/console assets:install web --symlink
 
 # Rebuild commons css/js through assetic
 php app/console assetic:dump --force
+
+
+sudo chmod -R 777 app/cache app/logs

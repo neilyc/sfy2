@@ -6,31 +6,68 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
 
+use Test\HelloworldBundle\Model\Country;
+use Test\HelloworldBundle\Model\Info;
+use Test\HelloworldBundle\Model\CountryQuery;
+
 class HelloworldController extends Controller
 {
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        $context = array('name' => $this->getUser());
+        $countries = CountryQuery::create()->find();
+        $context = array('name' => $this->getUser(),
+                         'countries' => $countries);
+
         return $this->render('TestHelloworldBundle::index.html.twig', $context);
     }
 
-    public function helloAction(Request $request)
+    public function helloAction()
     {
-        $context = array('name' => $this->getUser());
+        $countries = CountryQuery::create()->find();
+        $context = array('name' => $this->getUser(),
+                         'countries' => $countries);
+
         return $this->render('TestHelloworldBundle::indexUser.html.twig', $context);
     }
 
-    public function helloAdminAction(Request $request)
+    public function helloAdminAction()
     {
-        $context = array('name' => $this->getUser());
+        $countries = CountryQuery::create()->find()->toKeyValue('Id', 'Name');
+        $context = array('name' => $this->getUser(),
+                         'countries' => $countries);
+
         return $this->render('TestHelloworldBundle::indexAdmin.html.twig', $context);
     }
 
-    public function getUser(){
+    public function addCountryAction()
+    {
+
+        $country = new Country();
+        $country->setName($this->get('request')->request->get('_country'));
+        $country->save();
+
+        return $this->redirect($$this->generateUrl("_helloworld_admin"));
+    }
+
+    public function addInfoAction()
+    {
+
+        $info = new Info();
+        $info->setCountryId($this->get('request')->request->get('_country'));
+        $info->setName($this->get('request')->request->get('_name'));
+        $info->setInfo($this->get('request')->request->get('_info'));
+        $info->save();
+       
+        return $this->redirect($this->generateUrl("_helloworld_admin"));
+    }
+
+    public function getUser()
+    {
         $name = 'Anonymous';
         if($this->container->get('security.context')->getToken()->getUser() != 'anon.') {
             $name = $this->container->get('security.context')->getToken()->getUser()->getUsername();
         }
+
         return $name;
     }
 }

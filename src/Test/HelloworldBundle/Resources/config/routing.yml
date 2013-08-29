@@ -16,3 +16,11 @@ _security_check:
 
 _logout:
     pattern:  /secured/logout
+
+_add_country:
+    pattern: /secured/add/country
+    defaults: { _controller:TestHelloworldBundle:Helloworld:addCountry }
+
+_add_info:
+    pattern: /secured/add/info
+    defaults: { _controller:TestHelloworldBundle:Helloworld:addInfo }

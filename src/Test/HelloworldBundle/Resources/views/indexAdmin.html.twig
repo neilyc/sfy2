@@ -6,7 +6,6 @@
 <div class="jumbotron">
   <div class="container">
     <h1>Hello world {{ name }}!</h1>
-    <p>You are an admin</p>
     <p><a class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
   </div>
 </div>
@@ -15,20 +14,41 @@
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+      <h2>Add a country</h2>
+      <form  class="navbar-form navbar-right" action="{{ path("_add_country") }}" method="post" id="login">
+        <div class="form-group">
+          <label> Country : </label>
+          <input type="text" id="country" name="_country" class="form-control"  placeholder="Country"/>
+        </div>
+        <div class="form-group" style="width:100%;margin-top:20px">
+          <button type="submit" class="btn btn-success">Add</button>
+        </div>
+      </form>
     </div>
     <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
+      <h2>Add an info</h2>
+      <form  class="navbar-form navbar-right" action="{{ path("_add_info") }}" method="post" id="login">
+        <div class="form-group">
+          <label for="country"> Country : </label>
+          <select name="_country" id="country" class="form-control">
+            {% for id,country in countries %}
+              <option value="{{id}}">{{country}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name"> Name : </label>
+          <input type="text" id="name" name="_name" class="form-control"  placeholder="Name"/>
+        </div>
+        <div class="form-group">
+          <label for="info"> Info : </label>
+          <input type="text" id="info" name="_info" class="form-control"  placeholder="Info"/>
+        </div>
+        <div class="form-group" style="width:100%;margin-top:20px">
+          <button type="submit" class="btn btn-success">Add</button>
+        </div>
+      </form>
    </div>
-    <div class="col-lg-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#">View details &raquo;</a></p>
-    </div>
   </div>
 
   <hr>
