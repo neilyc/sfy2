@@ -39,8 +39,8 @@ app/phpunit.xml
 
 # Propel directories
 */propel/sql/*
-src/*/Bundle/*Bundle/Model/*/map/*
-src/*/Bundle/*Bundle/Model/*/om/*
+src/*/*Bundle/Model/map/*
+src/*/*Bundle/Model/om/*
 
 # Composer
 composer.phar
